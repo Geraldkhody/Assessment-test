@@ -1,10 +1,15 @@
+import FileDirectory from "./Component/File Directory/FileDirectory";
+import NavBar from "./Component/NavBar/NavBar";
 
 
 function App() {
   return (
-    <div className="">
-      
-    </div>
+    <>
+      <NavBar />
+      <main>
+        <FileDirectory />
+      </main>
+    </>
   );
 }
 
