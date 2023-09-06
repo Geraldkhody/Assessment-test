@@ -1,5 +1,6 @@
 import FileDirectory from "./Component/File Directory/FileDirectory";
 import NavBar from "./Component/NavBar/NavBar";
+import Modal from "./UI/Modal.jsx/Modal";
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <main>
         <FileDirectory />
       </main>
+      <Modal />
     </>
   );
 }
