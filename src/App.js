@@ -1,6 +1,7 @@
+import Download from "./Component/Download/Download";
 import FileDirectory from "./Component/File Directory/FileDirectory";
 import NavBar from "./Component/NavBar/NavBar";
-import Modal from "./UI/Modal.jsx/Modal";
+// import Modal from "./UI/Modal.jsx/Modaal";
 
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
       <main>
         <FileDirectory />
       </main>
-      <Modal />
+      {/* <Modal /> */}
+      <Download />
     </>
   );
 }

@@ -1,10 +1,27 @@
 import React from 'react'
 
-const PrintDownloadOverlap = () => {
+const PrintDownloadOverlap = ({src, name}) => {
+  const downloadFileHandler = () => {
+    const fileUrl = src;
+
+    // Create a hidden anchor element
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = name; // Set the desired file name
+
+    // Trigger a click event on the anchor element
+    document.body.appendChild(link);
+    link.click();
+
+    // Clean up the anchor element
+    document.body.removeChild(link);
+
+  }
+
   return (
     <div className="flex absolute bottom-2 left-2">
             {/* Download icon */}
-            <div className="w-8 h-8 border border-[#dfe1e2] rounded-full flex justify-center items-center mr-1">
+            <div className="w-8 h-8 border border-[#dfe1e2] rounded-full flex justify-center items-center mr-1" onClick={downloadFileHandler}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="14"

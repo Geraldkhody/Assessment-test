@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import FolderTemp from '../../UI/FolderTemp/FolderTemp'
+import ActiveFolder from '../../Store/ActiveFolder'
 
-const Folders = () => {
+const Folders = ({folderData}) => {
+  const ctx = useContext(ActiveFolder)
+
   return (
     <div className='mt-10'>
         {/* Header */}
@@ -9,10 +12,11 @@ const Folders = () => {
 
       {/* Displaying the Folders */}
       <div className='grid grid-cols-4 gap-5 mt-6'>
-        <FolderTemp />
-        <FolderTemp />
-        <FolderTemp />
-        <FolderTemp />
+        {ctx.activeFolderData.map(item => (
+          <FolderTemp key={item.id} {...item} />
+
+        ))}
+        
       </div>
     </div>
   )

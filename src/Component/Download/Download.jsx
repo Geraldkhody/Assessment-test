@@ -1,22 +1,9 @@
-import React, { useContext, useEffect } from "react";
-import ActiveFolder from "../../Store/ActiveFolder";
+import React from 'react'
+import style from './Download.module.css'
 
-const FolderTemp = ({name, contents}) => {
-  const ctx = useContext(ActiveFolder)
-
-  const openFolderHandler = () => {
-    ctx.updateData(contents)
-
-    ctx.activeFolderData = contents.filter(item => item.type === 'folder')
-    ctx.activeFileData = contents.filter(item => item.type === 'file')
-
-    console.log(ctx.activeFolderData)
-    console.log(ctx.activeFileData)
-  }
-
-
+const Download = () => {
   return (
-    <div className="flex items-center border border-[#eff0f0] max-w-72 rounded-md px-3 py-2 cursor-pointer" onDoubleClick={openFolderHandler}>
+      <div className="transition flex items-center border border-[#eff0f0] w-72 rounded-md px-3 py-2 cursor-pointer absolute top-10 right-28" >
         {/* Folder Icon */}
         <div className="w-8 h-8 rounded-full bg-[#f2f2f3] flex justify-center items-center mr-3   ">
             <svg
@@ -35,11 +22,11 @@ const FolderTemp = ({name, contents}) => {
 
         {/* Folder Name and Size */}
         <div className="flex flex-col">
-            <div className="font-bold text-sm">{name}</div>
+            <div className="font-bold text-sm">name</div>
             <div className="text-xs text-[#6f7376]">size</div>
         </div>
     </div>
-  );
-};
+  )
+}
 
-export default FolderTemp;
+export default Download
