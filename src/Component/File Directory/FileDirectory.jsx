@@ -57,7 +57,7 @@ const FileDirectory = () => {
   return (
     <ActiveFolder.Provider value={{
       activeFolderData: activeFolderData,
-      activeFileData: activeFolderData,
+      activeFileData: activeFileData,
       updateData: updateDataHandler
     }} >
       <div>

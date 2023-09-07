@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PdfIcon from "../Icons/PdfIcon";
 import FavIcon from "../Icons/FavIcon";
 import XlsxIcon from "../Icons/XlsxIcon";
@@ -10,6 +10,20 @@ const FileTemp2 = ({ name, src, created_at }) => {
   const [isDocument, setIsDocument] = useState(false);
   const [isPdf, setIsPdf] = useState(true);
   const [isXlsx, setIsXlsx] = useState(false);
+
+  useEffect(() => {
+    const fileExtension = name.split('.').pop().toLowerCase();
+
+    if (fileExtension === "jpg" || fileExtension === "png") {
+        setIsDocument(false);
+        
+    } else if (fileExtension === "pdf" || fileExtension === "xlsx") {
+        setIsDocument(true);
+
+    }
+  }, [isDocument])
+
+  
 
   const favHandler = () => {
     setIsFav(!isFav);

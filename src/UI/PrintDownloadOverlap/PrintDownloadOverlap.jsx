@@ -1,6 +1,14 @@
 import React from 'react'
 
 const PrintDownloadOverlap = ({src, name}) => {
+
+  // const fileExtension = name.split('.').pop().toLowerCase();
+
+  // if (fileExtension === "pdf" || fileExtension === "xlsx") {
+  //   setIsDocument(false);
+  // }
+  
+
   const downloadFileHandler = () => {
     const fileUrl = src;
 
