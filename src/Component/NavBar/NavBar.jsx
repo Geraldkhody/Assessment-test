@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import SortDropDown from "../SortDropDown/SortDropDown";
 
 const NavBar = () => {
+  const [showDropDown, setShowDropDown] = useState(false)
+
   const keyPressHandler = (event) => {
     if (event.key === "Enter") {
       console.log(event.key);
     }
   };
+  
+  const toggleDropDown = () => {
+    setShowDropDown(!showDropDown);
+  }
 
   return (
     <div className="flex justify-between items-center max-h-9">
-      <div className="flex justify-center items-center px-3 py-2 gap-12 h-full border-[#e5e6e6] border rounded-md ">
+      <div className="relative flex justify-center items-center hover:bg-gray-100 group-[]:hover:text-[#252627] px-3 py-2 gap-12 h-full border-[#e5e6e6] border rounded-md cursor-pointer" onClick={toggleDropDown}>
         <span className="text-[#5e6164] ">Sort</span>
         <svg
           width="16"
@@ -38,7 +45,11 @@ const NavBar = () => {
             </g>
           </g>
         </svg>
+        {showDropDown && <SortDropDown />}
       </div>
+
+      
+
       <div className="relative h-full text-[#5e6164] flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"

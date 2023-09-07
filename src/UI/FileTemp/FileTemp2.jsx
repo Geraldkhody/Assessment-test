@@ -11,17 +11,17 @@ const FileTemp2 = ({ name, src, created_at }) => {
   const [isPdf, setIsPdf] = useState(true);
   const [isXlsx, setIsXlsx] = useState(false);
 
-  useEffect(() => {
-    const fileExtension = name.split('.').pop().toLowerCase();
+  // useEffect(() => {
+  //   const fileExtension = name.split('.').pop().toLowerCase();
 
-    if (fileExtension === "jpg" || fileExtension === "png") {
-        setIsDocument(false);
+  //   if (fileExtension === "jpg" || fileExtension === "png") {
+  //       setIsDocument(false);
         
-    } else if (fileExtension === "pdf" || fileExtension === "xlsx") {
-        setIsDocument(true);
+  //   } else if (fileExtension === "pdf" || fileExtension === "xlsx") {
+  //       setIsDocument(true);
 
-    }
-  }, [isDocument])
+  //   }
+  // }, [isDocument])
 
   
 
