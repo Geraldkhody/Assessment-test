@@ -1,17 +1,17 @@
 import Download from "./Component/Download/Download";
 import FileDirectory from "./Component/File Directory/FileDirectory";
+import FilePreview from "./Component/File Preview/FilePreview";
 import NavBar from "./Component/NavBar/NavBar";
-// import Modal from "./UI/Modal.jsx/Modaal";
 
 
 function App() {
   return (
     <>
+      {/* <FilePreview /> */}
       <NavBar />
       <main>
         <FileDirectory />
       </main>
-      {/* <Modal /> */}
       <Download />
     </>
   );
