@@ -3,7 +3,7 @@ import Folders from '../Folders/Folders';
 import Files from '../Files/Files';
 import ActiveFolder from '../../Store/ActiveFolder';
 
-const FileDirectory = () => {
+const FileDirectory = ({showFilePreviewIsShown}) => {
   const [folderData, setFolderData] = useState([]);
   const [fileData, setFileData] = useState([]);
   const [activeFolderData, setActiveFolderData] = useState([])
@@ -46,6 +46,10 @@ const FileDirectory = () => {
     setActiveFileData(contents.filter(item => item.type === 'file'))
   }
 
+  const filePreviewCallHandler = () => {
+    showFilePreviewIsShown()
+  }
+
   if (loading) {
     return <div>Loading...</div>; // Display a loading message
   }
@@ -58,7 +62,8 @@ const FileDirectory = () => {
     <ActiveFolder.Provider value={{
       activeFolderData: activeFolderData,
       activeFileData: activeFileData,
-      updateData: updateDataHandler
+      updateData: updateDataHandler,
+      filePreviewCall: filePreviewCallHandler,
     }} >
       <div>
         <Folders folderData={ctx.activeFolderData} />

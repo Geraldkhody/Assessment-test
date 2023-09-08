@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PdfIcon from "../Icons/PdfIcon";
 import FavIcon from "../Icons/FavIcon";
 import XlsxIcon from "../Icons/XlsxIcon";
 import NotFavIcon from "../Icons/NotFavIcon";
 import PrintDownloadOverlap from "../PrintDownloadOverlap/PrintDownloadOverlap";
+import ActiveFolder from "../../Store/ActiveFolder";
 
 const FileTemp2 = ({ name, src, created_at }) => {
   const [isFav, setIsFav] = useState(false);
   const [isDocument, setIsDocument] = useState(false);
   const [isPdf, setIsPdf] = useState(true);
   const [isXlsx, setIsXlsx] = useState(false);
+
+  const ctx = useContext(ActiveFolder);
+
 
   // useEffect(() => {
   //   const fileExtension = name.split('.').pop().toLowerCase();
@@ -23,14 +27,16 @@ const FileTemp2 = ({ name, src, created_at }) => {
   //   }
   // }, [isDocument])
 
-  
+  const FilePreviewHandler = () => {
+    ctx.filePreviewCall()
+  }
 
   const favHandler = () => {
     setIsFav(!isFav);
   };
 
   return (
-    <div className="rounded-md bg-white p-2 shadow-md shadow-neutral-200  ">
+    <div className="rounded-md bg-white p-2 shadow-md shadow-neutral-200" onDoubleClick={FilePreviewHandler}>
       {/* Image */}
       <div className="min-w-64 h-52 flex justify-center items-center bg-[#f2f5f7] rounded-sm relative">
         {/* Displaying image if it is not a document */}

@@ -3,7 +3,8 @@ import React from 'react'
 const ActiveFolder = React.createContext({
   activeFolderData: [],
   activeFileData: [],
-  updateData: () => {}
+  updateData: () => {},
+  filePreviewCall: () => {}
 })
 
 export default ActiveFolder;
