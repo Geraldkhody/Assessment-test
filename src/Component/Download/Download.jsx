@@ -3,7 +3,7 @@ import style from "./Download.module.css";
 
 const Download = () => {
   return (
-    <div className="transition flex items-center border border-[#eff0f0] w-72 rounded-md px-3 py-2 cursor-pointer absolute top-10 right-28">
+    <div className={`${style.transition} flex items-center border border-[#eff0f0] w-72 rounded-md px-3 py-2 cursor-pointer absolute  right-28`}>
       {/* Folder Icon */}
       <div className="w-8 h-8 rounded-full bg-[#f2f2f3] flex justify-center items-center mr-3   ">
         <svg

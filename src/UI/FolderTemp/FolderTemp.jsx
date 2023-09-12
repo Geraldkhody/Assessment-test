@@ -9,9 +9,6 @@ const FolderTemp = ({name, contents}) => {
 
     ctx.activeFolderData = contents.filter(item => item.type === 'folder')
     ctx.activeFileData = contents.filter(item => item.type === 'file')
-
-    console.log(ctx.activeFolderData)
-    console.log(ctx.activeFileData)
   }
 
 

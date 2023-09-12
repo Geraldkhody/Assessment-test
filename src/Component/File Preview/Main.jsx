@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import PdfIcon from "../../UI/Icons/PdfIcon";
-import PrintDownloadOverlap from "../../UI/PrintDownloadOverlap/PrintDownloadOverlap";
 import XlsxIcon from "../../UI/Icons/XlsxIcon";
 import NotFavIcon from "../../UI/Icons/NotFavIcon";
 import FavIcon from "../../UI/Icons/FavIcon";
+import ImageIcon from "../../UI/Icons/ImageIcon";
 
-const Main = ({ name, created_at }) => {
+const Main = ({ name, created_at, src, isPdf, isDocument, isXlsx }) => {
   const [isFav, setIsFav] = useState(false);
-  const [isDocument, setIsDocument] = useState(true);
 
   const favHandler = () => {
     setIsFav(!isFav);
@@ -23,13 +22,15 @@ const Main = ({ name, created_at }) => {
           {!isDocument && (
             <img
               className="w-full h-full object-cover"
-              src="image/aaa.jpg"
+              src={src}
               alt=""
             />
           )}
 
           {/* if isDocument then display the document icon as an image */}
-          {isDocument && <PdfIcon width={81} height={82} />}
+          {isDocument && isXlsx && <XlsxIcon width={80} height={81} />}
+
+          {isDocument && isPdf && <PdfIcon width={80} height={81} />}
 
           {/* Icons overlapping on the image */}
           <div
@@ -39,9 +40,7 @@ const Main = ({ name, created_at }) => {
             {!isFav && <NotFavIcon />}
             {isFav && <FavIcon />}
           </div>
-
-          {/* Displaying Download and Print icon if it is a document  */}
-          {isDocument && <PrintDownloadOverlap />}
+          
         </div>
 
         {/* File details */}
@@ -49,7 +48,11 @@ const Main = ({ name, created_at }) => {
           {/* File Icon */}
           <div className="w-8 h-8 rounded-full bg-[#f2f2f3] flex justify-center items-center mr-3">
             {/* File icon */}
-            <XlsxIcon height={20} width={19} />
+            {!isDocument && <ImageIcon />}
+
+            {isDocument && isXlsx && <XlsxIcon width={19} height={20} />}
+
+            {isDocument && isPdf && <PdfIcon width={19} height={20} />}
           </div>
 
           {/* File Name and Date it was added */}

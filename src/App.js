@@ -6,10 +6,13 @@ import NavBar from "./Component/NavBar/NavBar";
 
 function App() {
   const [filePreviewIsShown, setFilePreviewIsShown] = useState(false);
+  const [items, setItems] = useState()
 
-  const showFilePreviewIsShown = () => {
+  const showFilePreviewIsShown = (items) => {
+    setItems(items)
     setFilePreviewIsShown(true);
   };
+
 
   const hideFilePreviewIsShown = () => {
     setFilePreviewIsShown(false);
@@ -18,7 +21,7 @@ function App() {
   return (
     <>
       {filePreviewIsShown && (
-        <FilePreview
+        <FilePreview items={items}
           hideFilePreviewIsShown={hideFilePreviewIsShown}
         />
       )}

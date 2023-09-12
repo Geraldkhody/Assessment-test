@@ -4,15 +4,12 @@ import Files from '../Files/Files';
 import ActiveFolder from '../../Store/ActiveFolder';
 
 const FileDirectory = ({showFilePreviewIsShown}) => {
-  const [folderData, setFolderData] = useState([]);
-  const [fileData, setFileData] = useState([]);
   const [activeFolderData, setActiveFolderData] = useState([])
   const [activeFileData, setActiveFileData] = useState([])
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const ctx = useContext(ActiveFolder);
-  const [folderDataUpdate, setFolderDataUpdate] = useState()
 
   useEffect(() => {
     fetchDirectory();
@@ -25,10 +22,8 @@ const FileDirectory = ({showFilePreviewIsShown}) => {
         throw new Error('Network response was not ok');
       }
       const data = await res.json();
-      console.log(data);
 
-      setFolderData(data.filter(item => item.type === 'folder'));
-      setFileData(data.filter(item => item.type === 'file'));
+     
 
       setActiveFolderData(data.filter(item => item.type === 'folder'))
       setActiveFileData(data.filter(item => item.type === 'file'))
@@ -41,13 +36,12 @@ const FileDirectory = ({showFilePreviewIsShown}) => {
   };
 
   const updateDataHandler = (contents) => {
-    console.log(contents)
     setActiveFolderData(contents.filter(item => item.type === 'folder'))
     setActiveFileData(contents.filter(item => item.type === 'file'))
   }
 
-  const filePreviewCallHandler = () => {
-    showFilePreviewIsShown()
+  const filePreviewCallHandler = (items) => {
+    showFilePreviewIsShown(items)
   }
 
   if (loading) {

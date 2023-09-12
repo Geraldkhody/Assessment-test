@@ -1,8 +1,65 @@
 import React from "react";
 
-const DownloadIcon = () => {
+const DownloadIcon = ({src, name}) => {
+  const downloadFileHandler = () => {
+    const fileUrl = src;
+
+    // Create a hidden anchor element
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = name; // Set the desired file name
+
+    // Trigger a click event on the anchor element
+    document.body.appendChild(link);
+    link.click();
+
+    // Clean up the anchor element
+    document.body.removeChild(link);
+
+  }
+
+//   const downloadFileHandler = () => {
+//   // Replace 'your_file_url' with the actual URL of the file you want to download.
+//     const fileUrl = src;
+
+//   fetch(fileUrl)
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
+
+//       const contentLength = response.headers.get('content-length');
+//       let downloaded = 0;
+
+//       const progressCallback = (event) => {
+//         if (contentLength) {
+//           downloaded = (event.loaded / contentLength) * 100;
+//           setDownloadProgress(downloaded);
+//         }
+//       };
+
+//       // Attach the progress callback to track the download progress
+//       response.body.getReader().read().then(function process({ done }) {
+//         if (done) {
+//           // Download completed
+//           setDownloadProgress(100);
+//         } else {
+//           // Continue downloading
+//           response.body.getReader().read().then(process);
+//         }
+//       });
+//     })
+//     .catch((error) => {
+//       console.error('Download error:', error);
+//       // Handle the error as needed
+//     });
+// };
+
+
+
   return (
-    <svg
+    <div className="w-7 h-7 border border-[#dfe1e2] rounded-full flex justify-center items-center mr-1" onClick={downloadFileHandler}>
+      <svg
       xmlns="http://www.w3.org/2000/svg"
       width="12"
       height="12"
@@ -14,6 +71,8 @@ const DownloadIcon = () => {
         fill="#6E7377"
       />
     </svg>
+    </div>
+    
   );
 };
 

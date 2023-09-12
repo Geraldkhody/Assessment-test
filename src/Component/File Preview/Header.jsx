@@ -8,9 +8,7 @@ const Header = ({hideFilePreviewIsShown}) => {
 
   return (
     <div className="border-b-[1px] flex justify-between items-center px-6 py-3">
-        <div className="w-8 h-8 border border-[#dfe1e2] rounded-full flex justify-center items-center mr-1 cursor-pointer">
             <DownloadIcon />
-        </div>
 
         <div className="flex justify-between items-center text-[#53575A] px-2 py-1 bg-[#DFE1E2] rounded cursor-pointer" onClick={closeFilePreviewHandler}>
             <span> 

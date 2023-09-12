@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 // import Modal from "../Moodal/Modal";
 import Header from "./Header";
 import Main from "./Main";
 import Modal from "../../UI/Moodal/Modal";
 
-const FilePreview = ({ name, created_at, hideFilePreviewIsShown }) => {
+const FilePreview = ({ hideFilePreviewIsShown, items }) => {
   
 
   return (
@@ -12,7 +12,7 @@ const FilePreview = ({ name, created_at, hideFilePreviewIsShown }) => {
     <div className="border w-[45rem] mt-10 rounded-md bg-white">
       <Header hideFilePreviewIsShown={hideFilePreviewIsShown} />
       
-      <Main name={name} created_at={created_at} />
+      <Main name={items.name} created_at={items.created_at} src={items.src} isDocument={items.isDocument} isPdf={items.isPdf} isXlsx={items.isXlsx} />
     </div>
     </Modal>
   );

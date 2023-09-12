@@ -2,7 +2,8 @@ import React from "react";
 
 const PrintIcon = () => {
   return (
-    <svg
+    <div className="w-7 h-7 border border-[#dfe1e2] rounded-full flex justify-center items-center">
+      <svg
       xmlns="http://www.w3.org/2000/svg"
       width="12"
       height="12"
@@ -14,6 +15,8 @@ const PrintIcon = () => {
         fill="#6E7377"
       />
     </svg>
+    </div>
+    
   );
 };
 
